@@ -13,4 +13,19 @@ class Publicacion extends Model
         'numDeVotaciones','urlImagenPublicacion',
         'nombre_autor','urlImagen_autor'
     ];
+
+   protected  static function boot(){
+       parent::boot();
+       self::creating(function ($table) {
+           if ( ! app()->runningInConsole()) {
+               $table->user_id = auth()->id();
+           }
+       });
+   }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+
 }
