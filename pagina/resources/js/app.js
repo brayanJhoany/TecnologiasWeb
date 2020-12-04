@@ -12,6 +12,12 @@ Vue.mixin({ methods: { route:window.route } });
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+
+// Install BootstrapVue
+Vue.use(BootstrapVue);
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin);
 
 const app = document.getElementById('app');
 

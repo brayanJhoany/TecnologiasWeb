@@ -45,6 +45,7 @@ class PublicacionController extends Controller
     }
 
     public function edit(Publicacion $publicacion){
+        //return $publicacion;
 
         return Inertia::render('Publicaciones/Edit',[
             'publicacion' => [
@@ -57,5 +58,18 @@ class PublicacionController extends Controller
             ]
         ]);
 
+    }
+    public function update(Request $request, $id){
+        if ($request->has('id')) {
+            Publicacion::find($request->input('id'))->update($request->all());
+            return redirect()->back()->with('message', 'Publicacion modificada con exito.');
+        }
+    }
+
+    public function destroy(Request $request){
+        if ($request->has('id')){
+            Publicacion::find($request->input('id'))->delete();
+            return redirect()->back()->with('message', 'Publicacion eliminada con exito.');
+        }
     }
 }

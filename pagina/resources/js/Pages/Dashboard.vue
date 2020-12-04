@@ -19,7 +19,7 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout'
     import Welcome from '@/Jetstream/Welcome'
-    import ContenidoPag from "@/Pages/Components/ContenidoPag";
+    import ContenidoPag from "@/Components/ContenidoPag";
 
     export default {
         components: {

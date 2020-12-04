@@ -57,13 +57,17 @@
                     <div class="bg-white rounded shadow overflow-x-auto">
                         <table class="w-full whitespace-no-wrap">
                             <tr class="text-left font-bold">
-                                <th class="px-6 pt-6 pb-4">Nombre</th>
-                                <th class="px-6 pt-6 pb-4">Extracto</th>
-                                <th class="px-6 pt-6 pb-4">Autor</th>
+                                <th class="px-6 pt-6 pb-4">titulo</th>
+                                <th class="px-6 pt-6 pb-4">categoria</th>
+                                <th class="px-6 pt-6 pb-4">nombre del autor</th>
+                                <th class="px-6 pt-6 pb-4">acciones</th>
                             </tr>
-                            <div>
-                                <b-table striped hover :items="publicaciones"></b-table>
-                            </div>
+                                <publicacion
+                                    v-for="project in publicaciones.data"
+                                    :key="project.id"
+                                    :publicacion="project"
+                                />
+                               
                         </table>
                     </div>
 
@@ -81,7 +85,7 @@ import Pagination from "@/Components/Pagination";
 import debounce from "lodash/debounce";
 import pickBy from "lodash/pickBy";
 import mapValues from "lodash/mapValues";
-import Publicacion from "@/Pages/Components/Publicacion";
+import Publicacion from "@/Components/Publicacion";
 export default{
     data(){
         return{

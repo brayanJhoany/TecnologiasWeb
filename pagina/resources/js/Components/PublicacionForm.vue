@@ -19,14 +19,7 @@
             />
         </div>
 
-        <div class="mb-6">
-            <ListInput
-                label="Ingrese una categoria"
-                v-model="form.categoria"
-                :error="errors.categoria"
-                :value="categorias"
-            />
-        </div>
+
 
 
         <div class="mb-4">
