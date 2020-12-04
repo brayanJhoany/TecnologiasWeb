@@ -4,6 +4,7 @@ export default {
     props: {
         id: String,
         value: String,
+        image:null,
         label: String,
         error: String,
     }

@@ -7,14 +7,21 @@
         >
             {{ label }}
         </label>
-        <input
+        <select
             :id="id"
+            :class="sr-only"
             v-bind="$attrs"
             :class="{ 'border-red-400': error }"
             :value="value"
             @input="$emit('input', $event.target.value)"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        />
+        >
+            <option>Aventura</option>
+            <option>Teatro</option>
+            <option>Politica</option>
+            <option>Deporte</option>
+        </select>
+
         <div v-if="error" class="text-red-500">{{ error }}</div>
     </div>
 </template>
@@ -23,6 +30,7 @@
 import FormInput from "../Mixins/FormInput";
 export default {
     name: "TextInput",
-    mixins: [FormInput]
+    mixins: [FormInput],
+
 }
 </script>

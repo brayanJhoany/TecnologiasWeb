@@ -19,9 +19,9 @@ class CreatePublicacionsTable extends Migration
             $table->foreign("user_id")->references("id")->on("users");
             $table->string('titulo');
             $table->text('contenido');
-            $table->string('categoria');
-            $table->integer('numDeLecturas');
-            $table->integer('numDeVotaciones');
+            $table->string('categoria')->default("Deporte");
+            $table->integer('numDeLecturas')->default(0);
+            $table->integer('numDeVotaciones')->default(0);
             $table->string('urlImagenPublicacion')->nullable();
             $table->string('nombre_autor');
             $table->string('urlImagen_autor')->nullable();
