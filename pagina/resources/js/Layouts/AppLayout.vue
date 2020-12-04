@@ -14,8 +14,11 @@
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
+                             <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
+                            </jet-nav-link>
+                             <jet-nav-link href="/publicaciones" :active="$page.currentRouteName.includes('publicaciones')">
+                                Publicaciones
                             </jet-nav-link>
                         </div>
                     </div>
@@ -121,6 +124,10 @@
                     <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                         Dashboard
                     </jet-responsive-nav-link>
+
+                    <jet-nav-link href="/publicaciones" :active="$page.currentRouteName == 'publicaciones'">
+                        Publicaciones
+                    </jet-nav-link>
                 </div>
 
                 <!-- Responsive Settings Options -->
@@ -201,6 +208,13 @@
 
         <!-- Page Content -->
         <main>
+            <div class="py-4" v-if="$page.flash.success">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                        <span class="block sm:inline">{{ $page.flash.success }}</span>
+                    </div>
+                </div>
+            </div>
             <slot></slot>
         </main>
 

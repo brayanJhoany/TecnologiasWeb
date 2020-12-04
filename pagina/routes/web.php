@@ -28,5 +28,5 @@ Route::group(["middleware" =>['auth:sanctum', 'verified']], function(){
        return Inertia\Inertia::render('Dashboard');
    })->name('dashboard');
 
-   Route::resource("publicacion", PublicacionController::class);
+   Route::resource("publicaciones", PublicacionController::class);
 });

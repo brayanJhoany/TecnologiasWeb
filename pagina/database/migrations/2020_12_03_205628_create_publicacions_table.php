@@ -26,6 +26,7 @@ class CreatePublicacionsTable extends Migration
             $table->string('nombre_autor');
             $table->string('urlImagen_autor')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
