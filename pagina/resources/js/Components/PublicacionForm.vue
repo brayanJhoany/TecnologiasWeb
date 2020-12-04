@@ -12,20 +12,13 @@
         </div>
         <div class="mb-6">
             <text-area-input
-                label="Nombre del autor"
-                v-model="form.nombre_autor"
-                :rows="3"
-                :error="errors.nombre_autor"
-            />
-        </div>
-        <div class="mb-6">
-            <text-area-input
                 label="Contenido"
                 v-model="form.contenido"
                 :rows="6"
                 :error="errors.contenido"
             />
         </div>
+
         <div class="mb-6">
             <ListInput
                 label="Ingrese una categoria"
@@ -34,13 +27,33 @@
                 :value="categorias"
             />
         </div>
+
         <div class="mb-6">
             <ImagenInput
-                label="Seleccione una imagen"
-                v-model="form.imagen_publicacion"
-                :error="errors.imagen_publicacion"
+                label="Seleccione una imagen para la publicacion"
+                v-model="form.urlImagenPublicacion"
+                :error="errors.urlImagenPublicacion"
             />
         </div>
+
+        <div class="mb-4">
+            <text-input
+                label="Nombre del autor "
+                v-model="form.nombre_autor"
+                :error="errors.nombre_autor"
+            />
+        </div>
+
+        <div class="mb-6">
+            <ImagenInput
+                label="Seleccione una imagen para la publicacion"
+                v-model="form.urlImagenAutor"
+                :error="errors.urlImagenAutor"
+            />
+        </div>
+
+
+
         <div class="px-8 py-4 border-t border-gray-200 flex justify-center items-center">
             <slot name="buttons" />
         </div>

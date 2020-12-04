@@ -42,6 +42,8 @@ export default {
                 nombre_autor:null,
                 contenido:null,
                 categoria:null,
+                urlImagenPublicacion:null,
+                urlImagenAutor:null,
             }
         }
     },
@@ -49,12 +51,15 @@ export default {
         submit() {
             this.processing = true;
             console.log("titulo: "+ this.form.titulo)
-            console.log("Nombre del autor: "+ this.form.nombre_autor)
             console.log("contenido: "+ this.form.contenido)
             console.log("Categoria: "+ this.form.categoria)
+            console.log("imagen publicacion: "+ this.form.urlImagenPublicacion)
+            console.log("Nombre del autor: "+ this.form.nombre_autor)
+            console.log("imagen autor: "+ this.form.urlImagenAutor)
 
-            //this.$inertia.post(this.route('publicaciones.store'), this.form)
-            //    .then(() => this.processing = false);
+            this.processing = true
+            this.$inertia.post(this.route('publicaciones.store'), this.form)
+               .then(() => this.processing = false);
         }
     }
 }

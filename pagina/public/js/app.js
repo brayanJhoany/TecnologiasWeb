@@ -1957,7 +1957,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2099,6 +2098,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TexAreaInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TexAreaInput */ "./resources/js/Components/TexAreaInput.vue");
 /* harmony import */ var _ListInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ListInput */ "./resources/js/Components/ListInput.vue");
 /* harmony import */ var _ImagenInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ImagenInput */ "./resources/js/Components/ImagenInput.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4813,18 +4825,27 @@ __webpack_require__.r(__webpack_exports__);
         titulo: null,
         nombre_autor: null,
         contenido: null,
-        categoria: null
+        categoria: null,
+        urlImagenPublicacion: null,
+        urlImagenAutor: null
       }
     };
   },
   methods: {
     submit: function submit() {
+      var _this = this;
+
       this.processing = true;
       console.log("titulo: " + this.form.titulo);
-      console.log("Nombre del autor: " + this.form.nombre_autor);
       console.log("contenido: " + this.form.contenido);
-      console.log("Categoria: " + this.form.categoria); //this.$inertia.post(this.route('publicaciones.store'), this.form)
-      //    .then(() => this.processing = false);
+      console.log("Categoria: " + this.form.categoria);
+      console.log("imagen publicacion: " + this.form.urlImagenPublicacion);
+      console.log("Nombre del autor: " + this.form.nombre_autor);
+      console.log("imagen autor: " + this.form.urlImagenAutor);
+      this.processing = true;
+      this.$inertia.post(this.route('publicaciones.store'), this.form).then(function () {
+        return _this.processing = false;
+      });
     }
   }
 });
@@ -50548,7 +50569,13 @@ var render = function() {
           staticClass:
             "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
           class: { "border-red-400": _vm.error },
-          attrs: { id: _vm.id, type: _vm.file, image: _vm.value },
+          attrs: {
+            type: "file",
+            enctype: "multipart/form-data",
+            accept: "image/*",
+            id: _vm.id,
+            image: _vm.value
+          },
           on: {
             input: function($event) {
               return _vm.$emit("input", $event.target.value)
@@ -50732,28 +50759,6 @@ var render = function() {
         { staticClass: "mb-6" },
         [
           _c("text-area-input", {
-            attrs: {
-              label: "Nombre del autor",
-              rows: 3,
-              error: _vm.errors.nombre_autor
-            },
-            model: {
-              value: _vm.form.nombre_autor,
-              callback: function($$v) {
-                _vm.$set(_vm.form, "nombre_autor", $$v)
-              },
-              expression: "form.nombre_autor"
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "mb-6" },
-        [
-          _c("text-area-input", {
             attrs: { label: "Contenido", rows: 6, error: _vm.errors.contenido },
             model: {
               value: _vm.form.contenido,
@@ -50795,15 +50800,57 @@ var render = function() {
         [
           _c("ImagenInput", {
             attrs: {
-              label: "Seleccione una imagen",
-              error: _vm.errors.imagen_publicacion
+              label: "Seleccione una imagen para la publicacion",
+              error: _vm.errors.urlImagenPublicacion
             },
             model: {
-              value: _vm.form.imagen_publicacion,
+              value: _vm.form.urlImagenPublicacion,
               callback: function($$v) {
-                _vm.$set(_vm.form, "imagen_publicacion", $$v)
+                _vm.$set(_vm.form, "urlImagenPublicacion", $$v)
               },
-              expression: "form.imagen_publicacion"
+              expression: "form.urlImagenPublicacion"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "mb-4" },
+        [
+          _c("text-input", {
+            attrs: {
+              label: "Nombre del autor ",
+              error: _vm.errors.nombre_autor
+            },
+            model: {
+              value: _vm.form.nombre_autor,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "nombre_autor", $$v)
+              },
+              expression: "form.nombre_autor"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "mb-6" },
+        [
+          _c("ImagenInput", {
+            attrs: {
+              label: "Seleccione una imagen para la publicacion",
+              error: _vm.errors.urlImagenAutor
+            },
+            model: {
+              value: _vm.form.urlImagenAutor,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "urlImagenAutor", $$v)
+              },
+              expression: "form.urlImagenAutor"
             }
           })
         ],

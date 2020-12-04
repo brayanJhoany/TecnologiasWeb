@@ -25,4 +25,8 @@ class PublicacionController extends Controller
     public function  create(){
         return Inertia::render("Publicaciones/Create");
     }
+
+    public  function store(Request $request){
+        return $request->all();
+    }
 }
