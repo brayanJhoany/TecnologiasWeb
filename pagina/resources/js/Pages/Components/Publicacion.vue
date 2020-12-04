@@ -14,23 +14,7 @@
                     <path d="M6 2l2-2h4l2 2h4v2H2V2h4zM3 6h14l-1 14H4L3 6zm5 2v10h1V8H8zm3 0v10h1V8h-1z" />
                 </svg>
             </inertia-link>
-        </td>
-        <td class="border-t">
-            <inertia-link
-                class="px-6 py-4 flex items-center"
-                :href="route('publicaciones.edit', publicacion.id)"
-            >
-                {{ publicacion.categoria }}
-            </inertia-link>
-        </td>
-        <td class="border-t">
-            <inertia-link
-                class="px-6 py-4 flex items-center"
-                :href="route('publicaciones.edit', publicacion.id)"
-            >
-                {{ publicacion.nombre_autor }}
-            </inertia-link>
-        </td>
+
         <td class="border-t w-px">
             <inertia-link
                 class="px-4 flex items-center"
@@ -44,16 +28,14 @@
                 </svg>
             </inertia-link>
         </td>
-
     </tr>
 </template>
 
-
 <script>
 export default {
-    name:"publicacion",
-    props:{
-        publicacion:Object
+    name: "publicacion",
+    props: {
+        publicacion: Object,
     }
 }
 </script>

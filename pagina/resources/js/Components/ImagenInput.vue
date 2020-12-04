@@ -7,12 +7,12 @@
         >
             {{ label }}
         </label>
-        <input type="file" enctype="multipart/form-data" accept="image/*"
+        <input
             :id="id"
             v-bind="$attrs"
-            :class="{ 'border-red-400': error  }"
-            :image="value"
-            @input="$emit('input' , $event.target.value)"
+            :class="{ 'border-red-400': error }"
+            :value="value"
+            @input="$emit('input', $event.target.value)"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
         <div v-if="error" class="text-red-500">{{ error }}</div>

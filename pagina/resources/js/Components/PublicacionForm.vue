@@ -28,19 +28,28 @@
             />
         </div>
 
-        <div class="mb-6">
-            <ImagenInput
-                label="Seleccione una imagen para la publicacion"
-                v-model="form.urlImagenPublicacion"
-                :error="errors.urlImagenPublicacion"
-            />
-        </div>
 
         <div class="mb-4">
             <text-input
                 label="Nombre del autor "
                 v-model="form.nombre_autor"
                 :error="errors.nombre_autor"
+            />
+        </div>
+        <div class="mb-4">
+            <text-input
+                label="Ingrese una categoria "
+                v-model="form.categoria"
+                :error="errors.categoria"
+            />
+        </div>
+
+        <!--
+        <div class="mb-6">
+            <ImagenInput
+                label="Seleccione una imagen para la publicacion"
+                v-model="form.urlImagenPublicacion"
+                :error="errors.urlImagenPublicacion"
             />
         </div>
 
@@ -52,7 +61,7 @@
             />
         </div>
 
-
+        -->
 
         <div class="px-8 py-4 border-t border-gray-200 flex justify-center items-center">
             <slot name="buttons" />
@@ -63,7 +72,6 @@
 <script>
 import TextInput from "./TextInput";
 import TextAreaInput from "./TexAreaInput";
-import ListInput from "./ListInput";
 import ImagenInput from "./ImagenInput";
 
 export default {
@@ -71,7 +79,6 @@ export default {
     components: {
         TextInput,
         TextAreaInput,
-        ListInput,
         ImagenInput,
     },
     props: {
