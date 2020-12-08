@@ -96,9 +96,9 @@
                                     </template>
 
                                     <!-- Authentication -->
-                                    <form @submit.prevent="logout">
+                                    <form @click="logout">
                                         <jet-dropdown-link as="button">
-                                            Logout
+                                            cerrar sesion
                                         </jet-dropdown-link>
                                     </form>
                                 </template>
@@ -209,7 +209,7 @@
         <!-- Page Content -->
         <main>
             <div class="py-4" v-if="$page.flash.success">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto sm:px-4 lg:px-4">
                     <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
                         <span class="block sm:inline">{{ $page.flash.success }}</span>
                     </div>
@@ -256,9 +256,9 @@
             },
 
             logout() {
-                axios.post(route('logout').url()).then(response => {
-                    window.location = '/';
-                })
+                axios.post("/logout").then((response) => {
+                    window.location = "/";
+                });
             },
         }
     }

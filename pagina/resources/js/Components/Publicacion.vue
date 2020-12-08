@@ -9,7 +9,7 @@
                 >
                     <path d="M6 2l2-2h4l2 2h4v2H2V2h4zM3 6h14l-1 14H4L3 6zm5 2v10h1V8H8zm3 0v10h1V8h-1z" />
                 </svg>
-        <td class="border-t">
+        <td class="border-t text-c">
             {{ publicacion.categoria }}
         </td>
         <td class="border-t">
@@ -17,10 +17,10 @@
         </td>
 
 
-        <td class="border px-4 py-2">
-            <b-button  variant="primary" @click="verPublicacion(publicacion)">Ver</b-button>
-            <button @click="editarPublicacion(publicacion)"  class="btn btn-warning">Editar</button>
-            <b-button variant="danger" @click="deletePublicacion(publicacion)" >Eliminar</b-button>
+        <td class="border">
+            <b-button class="mr-4"  size="md" variant="primary" @click="verPublicacion(publicacion)">Ver</b-button>
+            <b-button class="mr-4" variant="warning" @click="editarPublicacion(publicacion)" >Editar</b-button>
+            <b-button  variant="danger" @click="deletePublicacion(publicacion)" >Eliminar</b-button>
         </td>
 
 
