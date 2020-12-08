@@ -1,5 +1,5 @@
 <template>
-    <b-container fluid="md" class="mt-2">
+    <b-container fluid="md" class="mt-2 mb-4">
         <b-row class="justify-content-md-center">
             <b-col cols="2" sm="0"> </b-col>
             <b-col cols="8" sm="12" class="mt-5">

@@ -23,9 +23,7 @@
                                 <label for="body" class="bmd-label-floating">Mensaje</label>
                                 <textarea name="body" type="text" class="form-control" rows="4" id="body"></textarea>
                             </div>
-                            <!-- <div class="form-group row justify-content-center">
-                                <div class="g-recaptcha" data-sitekey="6Let0fgZAAAAAG_6LuIKa54U0750Mp40p0kfzwBc"></div>
-                            </div> -->
+                             
                             <div class="row">
                                 <div class="col-md-4 ml-auto mr-auto text-center">
                                     <button type="submit" id='btn-contact' class="btn btn-primary btn-raised">
