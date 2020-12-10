@@ -8,9 +8,14 @@ use Inertia\Inertia;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Gate;
+
 class PublicacionController extends Controller
 {
     public function index(){
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         if ( ! session()->has("search")) {
             session()->put("search", null);
             session()->put("trashed", null);

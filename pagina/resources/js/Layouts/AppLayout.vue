@@ -17,9 +17,11 @@
                              <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link>
-                             <jet-nav-link href="/publicaciones" :active="$page.currentRouteName.includes('publicaciones')">
+                            <!-- puedo añadir un v-if para bloquear la ruta=>  v-if="$page.user.name =='Admin'" -->
+                            <jet-nav-link v-if="$page.user.name =='Admin'"   href="/publicaciones" :active="$page.currentRouteName.includes('publicaciones')">
                                 Publicaciones
                             </jet-nav-link>
+                            
                         </div>
                     </div>
 
