@@ -15,11 +15,19 @@
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                              <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
-                                Dashboard
+                                Mis campos
                             </jet-nav-link>
                             <!-- puedo añadir un v-if para bloquear la ruta=>  v-if="$page.user.name =='Admin'" -->
-                            <jet-nav-link v-if="$page.user.name =='Admin'"   href="/publicaciones" :active="$page.currentRouteName.includes('publicaciones')">
-                                Publicaciones
+                            <jet-nav-link v-if="'user_access'"   href="/publicaciones" :active="$page.currentRouteName.includes('publicaciones')">
+                                Casetas de riego
+                            </jet-nav-link>
+
+                             <jet-nav-link v-if="'user_access'"   href="/publicaciones" :active="$page.currentRouteName.includes('publicaciones')">
+                                Planificacion de riego
+                            </jet-nav-link>
+
+                            <jet-nav-link v-if="'user_access'"   href="/publicaciones" :active="$page.currentRouteName.includes('publicaciones')">
+                                Riego
                             </jet-nav-link>
                             
                         </div>
