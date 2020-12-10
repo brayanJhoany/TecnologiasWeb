@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Publicacion;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Models\User;
 class PublicacionController extends Controller
 {
     public function index(){
@@ -15,6 +17,7 @@ class PublicacionController extends Controller
         }
         return Inertia::render("Publicaciones/Index", [
             "filters" => session()->only(["search", "trashed"]),
+            "users"=> User::with('roles')->get(),
             "publicaciones" => Publicacion::with("user")
                 ->orderByDesc("id")
                 ->filter(request()->only("search", "trashed"))

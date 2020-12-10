@@ -16,11 +16,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        User::factory()->create([
-            "name"=>"Brayan Escobar",
-            "email"=>"brayan.escobar@live.com",
-            "password"=> bcrypt("123456789"),
+        // User::factory()->create([
+        //     "name"=>"Brayan Escobar",
+        //     "email"=>"brayan.escobar@live.com",
+        //     "password"=> bcrypt("123456789"),
+        // ]);
+        // Publicacion::factory(200)->create();
+
+        $this->call([
+            PermissionsTableSeeder::class,
+            RolesTableSeeder::class,
+            PermissionRoleTableSeeder::class,
+            UsersTableSeeder::class,
+            RoleUserTableSeeder::class,
         ]);
-        Publicacion::factory(200)->create();
     }
 }
